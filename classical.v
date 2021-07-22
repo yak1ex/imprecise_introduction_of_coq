@@ -20,6 +20,10 @@ Theorem LEM_implies_DNE : LEM -> DNE.
 Proof.
     unfold LEM, DNE, not. (* ~P は P -> False の略記 *)
     intros H P1 H1.
+    (*
+    assert (HPNP: P1 \/ (P1 -> False)) by (apply H).
+    destruct HPNP as [HL|HR].
+    *)
     destruct (H P1) as [HL|HR].
     - (* HL: P1 *) assumption. (* apply HL. *)
     - (* HR: P1 -> False *) exfalso. apply H1, HR.
@@ -50,10 +54,12 @@ Theorem LEM_implies_DMGNAND : LEM -> DMGNAND.
 Proof.
     unfold LEM, DMGNAND, not. intros.
     destruct (H P) as [HPL|HPR].
-    - left. assumption.
-    - destruct (H Q) as [HQL|HQR].
-        + right. assumption.
-        + exfalso. apply H0. split; assumption.
+    - (* HPL: P *) left. assumption.
+    - (* HPR: P -> False *) destruct (H Q) as [HQL|HQR].
+        + (* HQL: Q *) right. assumption.
+        + (* HQR: Q -> False *) exfalso. apply H0.
+          (* split. assumption. assumption. *)
+          split; assumption.
 Qed.
 
 Theorem DNE_implies_LEM : DNE -> LEM.
