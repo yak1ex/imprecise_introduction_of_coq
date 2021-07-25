@@ -16,13 +16,13 @@ customTheme : "myblack"
 - Twitter: yak_ex / GitHub: yak1ex
   - 発表資料のソースはGitHubに上げています
 - 愛知県在住、仕事では車載組込のべたC言語
-- Software Foundations自習中のCoq初心者
+- Software Foundations自習中のCoq初学者
 
 ---
 
 # Disclaimer
 
-- 筆者はCoq初心者です。関数型言語に強いわけでもありません。
+- 筆者はCoq初学者です。関数型言語に強いわけでもありません。
 - 理論的背景等は流して「ふんいき」だけお楽しみください。
   - 「Coqという名前を聞いたことしかない」くらいが対象レベルです。
   - 今回は量化子、Inductive、inductionあたりも紹介しません。
@@ -85,8 +85,8 @@ https://compcert.org/man/manual001.html#sec3
   - 型付きラムダ計算の全部入り＋Inductive型
     - λ2(多相型：型に依存した値)
     - λ<u>ω</u>(型演算：型に依存した型)
-    - λP(依存型：値に依存した型)    
-    ![ラムダキューブ](https://upload.wikimedia.org/wikipedia/commons/1/19/Lambda_cube.png)
+    - λP(依存型：値に依存した型)
+    - ![ラムダキューブ](https://upload.wikimedia.org/wikipedia/commons/1/19/Lambda_cube.png)
 
 ---
 
@@ -106,7 +106,8 @@ https://compcert.org/man/manual001.html#sec3
   - WindowsだとWSL+opam+VS Code+Remote-WSL+VSCoqでOK
     ```sh
     sudo apt install make m4 gcc unzip
-    sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
+    sh <(curl -sL https://raw.githubusercontent.com/\
+    ocaml/opam/master/shell/install.sh)
     opam init --disable-sandboxing # sandboxing無効はWSL用
     eval $(opam env)
     opam install opam-depext
@@ -151,5 +152,13 @@ https://compcert.org/man/manual001.html#sec3
 
 ---
 
-# Software Foundations
-# やろうぜ！
+# 実演
+
+## https://github.com/yak1ex/imprecise_introduction_of_coq/blob/master/classical.v
+
+---
+
+# 終わりに
+
+## Software Foundations
+## やろうぜ！
