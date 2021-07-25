@@ -22,16 +22,18 @@ Definition DMGNAND := forall P Q, ~(~P /\ ~Q) -> P \/ Q. (* ド・モルガン�
 (* unfold, intros, destruct disj, assumption, apply, exfalso *)
 Theorem LEM_implies_DNE : LEM -> DNE.
 Proof.
-    unfold LEM, DNE, not. (* ~P は P -> False の略記 *)
+    unfold LEM, DNE. unfold not. (* ~P は P -> False の略記 *)
     intros H P1 H1.
     (*
-    assert (HPNP: P1 \/ (P1 -> False)) by (apply H).
-    destruct HPNP as [HL|HR].
+    assert (HPNP: P1 \/ (P1 -> False)).
+    apply H.
+    destruct HPNP as [HL|HR]. assumption.
+    exfalso. apply H1. assumption.
     *)
     destruct (H P1) as [HL|HR].
     - (* HL: P1 *) assumption. (* apply HL. *)
     - (* HR: P1 -> False *) exfalso. apply H1, HR.
-      (* destruct (H1 HR). *)
+      (* destruct (H1 HR). とか *) (* apply (H1 HR). も可 *)
 Qed.
 (* 証明＝プログラム *)
 Print LEM_implies_DNE.
@@ -47,7 +49,7 @@ Qed.
 (* left/right *)
 Theorem LEM_implies_IMPNOTOR : LEM -> IMPNOTOR.
 Proof.
-    unfold LEM, IMPNOTOR, not. intros.
+    unfold LEM, IMPNOTOR. unfold not. intros.
     destruct (H P) as [HL|HR].
     - (* HL: P *) right. apply H0, HL.
     - (* HR: P -> False *) left. assumption.
