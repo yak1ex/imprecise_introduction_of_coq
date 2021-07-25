@@ -4,9 +4,19 @@ customTheme : "myblack"
 
 # Coqのふんいき
 
-## yak_ex
+## 論理学友の会 #14
 
-### 論理学友の会 vol.xx
+### yak_ex
+
+---
+
+# 自己紹介
+
+- 新 康孝(あたらし やすたか)
+- Twitter: yak_ex / GitHub: yak1ex
+  - 発表資料のソースはGitHubに上げています
+- 愛知県在住、仕事では車載組込のべたC言語
+- Software Foundations自習中のCoq初心者
 
 ---
 
@@ -136,5 +146,10 @@ https://compcert.org/man/manual001.html#sec3
 - 元々は拡張(四色定理の証明が契機)
 - Coq/SSReflect/MathCompによる定理証明:フリーソフトではじめる数学の形式化
   https://www.amazon.co.jp/dp/4627062419
-  ![Coq/SSReflect/MathCompによる定理証明:フリーソフトではじめる数学の形式化](https://m.media-amazon.com/images/P/4627062419.01._SCLZZZZZZZ_SX200_.jpg)
-  
+  ![Coq/SSReflect/MathCompによる定理証明:フリーソフトではじめる数学の形式化](https://m.media-amazon.com/images/P/4627062419.01._SCLZZZZZZZ_SX150_.jpg)
+- coqtokyo Ssreflect勉強会 (名大講義の輪読会)
+
+---
+
+# Software Foundations
+# やろうぜ！
