@@ -1,5 +1,9 @@
+(* 論理記号の表示 *)
+Require Import Unicode.Utf8.
+
 (* 古典命題論理の命題 *)
 Definition LEM := forall P, P \/ ~P. (* 排中律 Law of Excluded Middle *)
+Print LEM.
 Definition DNE := forall P, ~~P -> P. (* 二重否定除去 Double Negation Elimination *)
 (* P,Q が Type として推論されるのでProp(Proposition)として型を明示 *)
 Definition PEIRCE := forall P Q: Prop, ((P -> Q) -> P) -> P. (* Peirceの法則 *)
@@ -45,8 +49,8 @@ Theorem LEM_implies_IMPNOTOR : LEM -> IMPNOTOR.
 Proof.
     unfold LEM, IMPNOTOR, not. intros.
     destruct (H P) as [HL|HR].
-    - right. apply H0, HL.
-    - left. assumption.
+    - (* HL: P *) right. apply H0, HL.
+    - (* HR: P -> False *) left. assumption.
 Qed.
 
 (* split *)
@@ -70,6 +74,7 @@ Proof.
     apply H0. right. assumption.
 Qed.
 
+(* apply *)
 Theorem DNE_implies_PEIRCE : DNE -> PEIRCE.
 Proof.
     unfold DNE, PEIRCE, not.
@@ -100,11 +105,11 @@ Qed.
 Theorem PEIRCE_implies_LEM : PEIRCE -> LEM.
 Proof.
     unfold PEIRCE, LEM, not. intros.
+    (* apply H with (Q := False). *)
     apply H with False. intros.
     right. intros. apply H0. left. assumption.
 Qed.
 
-(* apply *)
 Theorem PEIRCE_implies_DNE : PEIRCE -> DNE.
 Proof.
     unfold PEIRCE, DNE, not. intros H P1 H1.
